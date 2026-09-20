@@ -403,8 +403,8 @@
             </div>
 
             <div class="form-group">
-              <label>Correo Electrónico</label>
-              <input type="email" id="correo" class="form-control" placeholder="tu-correo@ejemplo.com">
+              <label>Correo Electrónico *</label>
+              <input type="email" id="correo" class="form-control" placeholder="tu-correo@ejemplo.com" required>
             </div>
 
             <div class="form-group">
@@ -423,10 +423,11 @@
               <textarea id="mensaje" class="form-control" rows="3" placeholder="Ej: Tengo un negocio comercial y quiero que mis clientes hagan pedidos directos..."></textarea>
             </div>
 
-            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; font-size: 17px;">
-              🚀 Enviar y Recibir Propuesta
+            <button type="submit" id="submitBtn" class="btn-primary" style="width: 100%; justify-content: center; font-size: 17px;">
+              🚀 Enviar Solicitud de Cotización
             </button>
-            <p style="font-size: 12px; color: var(--gray-text); text-align: center; margin-top: 10px;">🔒 No compartimos tus datos con nadie. Cero spam.</p>
+            <p style="font-size: 12px; color: var(--gray-text); text-align: center; margin-top: 10px;">🔒 Recibirás respuesta a tu correo o WhatsApp en menos de 2 horas.</p>
+            <div id="formStatus" style="display: none; margin-top: 16px; border-radius: 12px; padding: 18px; text-align: center;"></div>
           </form>
         </div>
       </div>
@@ -551,17 +552,79 @@
       }
     }
 
-    function handleFormSubmit(e) {
+    async function handleFormSubmit(e) {
       e.preventDefault();
-      const nombre = document.getElementById('nombre').value;
-      const telefono = document.getElementById('telefono').value;
+      const submitBtn = document.getElementById('submitBtn');
+      const formStatus = document.getElementById('formStatus');
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const correo = document.getElementById('correo').value.trim();
       const tipo = document.getElementById('tipoProyecto').value;
-      const mensaje = document.getElementById('mensaje').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
 
-      const texto = `Hola APPlica, mi nombre es ${nombre}. Deseo información sobre: *${tipo}*. Detalle: ${mensaje || 'Quiero asesoría'}. Mi número de contacto es ${telefono}.`;
-      const urlWhatsapp = `https://wa.me/51928544342?text=${encodeURIComponent(texto)}`;
-      
-      window.open(urlWhatsapp, '_blank');
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '⏳ Enviando mensaje...';
+      formStatus.style.display = 'none';
+
+      const textoWhatsapp = `Hola APPlica, mi nombre es ${nombre}. Deseo cotizar: *${tipo}*. Correo: ${correo}. Detalle: ${mensaje || 'Quiero asesoría'}. Mi número de contacto es ${telefono}.`;
+      const urlWhatsapp = `https://wa.me/51928544342?text=${encodeURIComponent(textoWhatsapp)}`;
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/zixstore.pe@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            _subject: `🚀 Nueva Cotización APPlica: ${nombre} - ${tipo}`,
+            _template: 'table',
+            _captcha: 'false',
+            Nombre: nombre,
+            Telefono: telefono,
+            Correo: correo,
+            ServicioRequerido: tipo,
+            DetalleProyecto: mensaje || 'Solicita asesoría'
+          })
+        });
+
+        const data = await response.json();
+        
+        formStatus.style.display = 'block';
+        formStatus.style.background = '#ECFDF5';
+        formStatus.style.border = '1px solid #10B981';
+        formStatus.style.color = '#065F46';
+        formStatus.innerHTML = `
+          <div style="font-size: 28px; margin-bottom: 6px;">🎉</div>
+          <strong style="font-size: 16px; display: block; margin-bottom: 6px;">¡Tu solicitud fue enviada con éxito!</strong>
+          <p style="font-size: 13.5px; line-height: 1.5; margin-bottom: 14px; color: #047857;">
+            Hemos recibido tus datos y te responderemos a tu correo (<strong>${correo}</strong>) o celular a la brevedad.
+          </p>
+          <a href="${urlWhatsapp}" target="_blank" class="btn-primary" style="background: #25D366; width: 100%; justify-content: center; font-size: 14px; text-decoration: none;">
+            💬 ¿Deseas atención al instante? Escríbenos por WhatsApp
+          </a>
+        `;
+
+        document.getElementById('quoteForm').reset();
+        submitBtn.style.display = 'none';
+
+      } catch (err) {
+        console.error('Error enviando correo:', err);
+        formStatus.style.display = 'block';
+        formStatus.style.background = '#FFFBEB';
+        formStatus.style.border = '1px solid #F59E0B';
+        formStatus.style.color = '#92400E';
+        formStatus.innerHTML = `
+          <strong style="display: block; margin-bottom: 6px;">Gracias por tu interés, ${nombre}</strong>
+          <p style="font-size: 13.5px; margin-bottom: 12px;">Para garantizar que tu mensaje llegue de inmediato, por favor pulsa el siguiente botón:</p>
+          <a href="${urlWhatsapp}" target="_blank" class="btn-primary" style="background: #25D366; width: 100%; justify-content: center; font-size: 14px; text-decoration: none;">
+            💬 Enviar Solicitud por WhatsApp
+          </a>
+        `;
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
     }
   </script>
 
