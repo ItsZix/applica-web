@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APPlica | Desarrollo de Apps Web, Tiendas y Software a Medida</title>
+  <link rel="icon" type="image/png" href="assets/img/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="topbar">
+    🚀 <strong>Impulsa tu negocio:</strong> Creamos tu aplicación web o tienda online lista para captar clientes.
+    <a href="#contacto">Solicita tu cotización gratuita &rarr;</a>
+  </div>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <img src="assets/img/logo.png" alt="APPlica Logotipo Oficial">
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#proyectos">Proyectos & Demos</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="#faq">Preguntas</a></li>
+        <li><a href="#contacto" class="nav-cta-btn">⚡ ¡Cotizar mi App!</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="section-badge">⚡ Desarrollo Web & Apps a tu Medida</span>
+        <h1 class="hero-h1">Convierte tus ideas y tu negocio en una <span class="highlight-coral">app web</span> que genere clientes.</h1>
+        <p class="hero-desc">Desarrollamos aplicaciones web personalizadas, tiendas virtuales y sistemas en la nube para empresas, negocios y personas con ideas innovadoras. <strong>Sin tecnicismos complicados, sin costos inflados y con soporte continuo.</strong></p>
+        
+        <div class="hero-actions">
+          <a href="https://wa.me/51928544342?text=Hola%20APPlica,%20tengo%20un%20proyecto%20o%20idea%20de%20app%20y%20quiero%20asesor%C3%ADa" target="_blank" class="btn-primary">
+            💬 Escríbenos al WhatsApp
+          </a>
+          <a href="#planes" class="btn-secondary">
+            Ver Planes y Precios
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h4>100%</h4>
+            <p>Adaptado a tu Necesidad</p>
+          </div>
+          <div class="stat-item">
+            <h4>+ Rápidas</h4>
+            <p>Optimizadas para Móvil</p>
+          </div>
+          <div class="stat-item">
+            <h4>Soporte Total</h4>
+            <p>Atención cercana y ágil</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Representation -->
+      <div class="hero-visual">
+        <div class="hero-device-wrapper">
+          <img class="hero-phone-img" src="assets/img/mockup_celular.png" alt="APPlica Pantalla Móvil">
+          
+          <div class="floating-card card-1">
+            <div class="floating-icon" style="background: var(--primary);">✓</div>
+            <div>
+              <div style="color: var(--dark);">Ventas y Pedidos</div>
+              <div style="color: #10B981; font-size: 11px;">Directo a tu WhatsApp / Panel</div>
+            </div>
+          </div>
+
+          <div class="floating-card card-2">
+            <div class="floating-icon" style="background: var(--secondary);">⚡</div>
+            <div>
+              <div style="color: var(--dark);">Inversión Clara</div>
+              <div style="color: var(--gray-text); font-size: 11px;">Planes desde S/. 550</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- INTERACTIVE DEMO SHOWCASE SECTION -->
+  <section class="demos-section" id="demos">
+    <div class="container">
+      <div class="text-center reveal active">
+        <span class="section-badge blue">Prototipos Interactivos</span>
+        <h2 class="section-title">Mira el tipo de <span class="highlight-blue">soluciones reales</span> que creamos</h2>
+        <p class="section-subtitle mx-auto">Selecciona el tipo de negocio para ver una vista previa interactiva de las herramientas que implementamos para automatizar tus ventas.</p>
+      </div>
+
+      <div class="tab-controls reveal active">
+        <button class="tab-btn active" onclick="switchTab('restaurante', this)">🍔 Restaurantes & Gastronomía</button>
+        <button class="tab-btn" onclick="switchTab('clinica', this)">🩺 Clínicas, Citas & Servicios</button>
+        <button class="tab-btn" onclick="switchTab('tienda', this)">🛍️ Tienda Online & Catálogo</button>
+        <button class="tab-btn" onclick="switchTab('startup', this)">💡 Tu Propia Idea / Startup</button>
+      </div>
+
+      <div class="demo-display-box reveal active" id="demoBox">
+        <div class="demo-content">
+          <span class="section-badge" id="demoBadge" style="background: #FEF3C7; color: #D97706;">Demo Gastronómica</span>
+          <h3 id="demoTitle">App de Pedidos y Carta Digital con Delivery Directo</h3>
+          <p id="demoDesc">Tus clientes escanean el código QR en mesa o abren tu enlace desde redes sociales, eligen sus platillos favoritos y el pedido llega formateado con dirección y comprobante directo a tu cocina y WhatsApp.</p>
+          <ul class="demo-features" id="demoFeatures">
+            <li><span>✓</span> Carta interactiva con fotos, precios y combos</li>
+            <li><span>✓</span> Pedido directo con ubicación GPS para delivery</li>
+            <li><span>✓</span> Ahorro del 25% al 30% en comisiones de apps externas</li>
+            <li><span>✓</span> Pagos instantáneos con Yape, Plin o tarjeta</li>
+          </ul>
+          <a href="https://wa.me/51928544342?text=Hola,%20me%20interesa%20una%20app%20como%20la%20demo%20de%20restaurante" class="btn-primary" id="demoCta">
+            Cotizar una App Similar
+          </a>
+        </div>
+
+        <div class="demo-screen-mockup">
+          <div class="screen-header">
+            <div class="screen-dot dot-red"></div>
+            <div class="screen-dot dot-yellow"></div>
+            <div class="screen-dot dot-green"></div>
+            <span style="font-size: 11px; color: #94A3B8; margin-left: 10px; font-family: monospace;">https://tu-negocio.applica.pe</span>
+          </div>
+          <div class="screen-body" id="screenSimulation">
+            <div style="background: white; border-radius: 8px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <strong>🍔 Combo Familiar Parrillero</strong>
+                <span style="color: var(--primary); font-weight: 800;">S/. 65.00</span>
+              </div>
+              <p style="font-size: 12px; color: var(--gray-text); margin: 6px 0 10px 0;">Incluye papas, ensalada y bebida. Pedido listo en 20 min.</p>
+              <button style="background: #10B981; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">+ Añadir al Pedido</button>
+            </div>
+            <div style="background: #F1F5F9; border-radius: 8px; padding: 12px; font-size: 12px; display: flex; justify-content: space-between; align-items: center;">
+              <span>🛵 Delivery calculado a tu zona</span>
+              <strong style="color: #059669;">S/. 5.00</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTO REAL DESTACADO: PISQA -->
+  <section class="case-study-section" id="proyectos">
+    <div class="container">
+      <div class="case-card reveal active">
+        <div>
+          <div class="case-badge-live">
+            <span class="pulse-dot"></span> Proyecto Real en Producción
+          </div>
+          <h2 class="case-title">PISQA: <span>Web App & Sistema Punto de Venta (POS)</span></h2>
+          <p class="case-desc">
+            Desarrollo integral para <strong>PISQA (Snack & Cafetería)</strong>. Una solución completa que fusiona una <strong>web pública gourmet</strong> con catálogo interactivo y pedidos a WhatsApp, junto a un <strong>sistema privado de punto de venta (POS)</strong> con control de mesas, caja en tiempo real e inventario de almacén.
+          </p>
+
+          <div class="case-tech-tags">
+            <span class="case-tag gold">⚡ Web App + POS</span>
+            <span class="case-tag">Sincronización Supabase</span>
+            <span class="case-tag">Gestión de Mesas y Mozo</span>
+            <span class="case-tag">Exportación a Excel</span>
+            <span class="case-tag">Pedidos a WhatsApp</span>
+            <span class="case-tag">PWA Instalable</span>
+          </div>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="https://pisqa-vercel.vercel.app/" target="_blank" rel="noopener" class="btn-primary" style="background: linear-gradient(135deg, #10B981, #059669); box-shadow: 0 8px 25px rgba(16, 185, 129, 0.35);">
+              🚀 Ver Proyecto en Vivo ↗
+            </a>
+            <a href="#contacto" class="btn-secondary" style="color: white; border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05);">
+              Quiero un Sistema Similar
+            </a>
+          </div>
+        </div>
+
+        <div class="case-mockup-wrapper">
+          <a href="https://pisqa-vercel.vercel.app/" target="_blank" rel="noopener" class="case-mockup-link" title="Abrir demo de PISQA en vivo">
+            <img src="assets/img/pisqa_phones_hd.png" alt="PISQA Web App y Sistema POS en Móvil" class="case-mockup-img">
+            <div class="case-mockup-badge">
+              <span class="pulse-dot"></span> Ver Demo en Vivo ↗
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge">Nuestros Servicios</span>
+        <h2 class="section-title">Lo que en <span class="highlight-blue">APPlica</span> construimos para ti</h2>
+        <p class="section-subtitle mx-auto">Soluciones digitales ágiles pensadas para empresas comerciales, servicios profesionales, salud, gastronomía y creadores de proyectos.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-box">
+          <div>
+            <div class="service-icon-box" style="background: #FFE8E5; color: var(--primary);">🌐</div>
+            <h3>Páginas Web Corporativas</h3>
+            <p>Sitios modernos, ultrarrápidos y adaptados a cualquier dispositivo. Diseñados estratégicamente para posicionar tu marca y captar prospectos.</p>
+          </div>
+          <div class="service-tags">
+            <span class="tag">Responsive</span>
+            <span class="tag">Google SEO</span>
+            <span class="tag">WhatsApp CRM</span>
+          </div>
+        </div>
+
+        <div class="service-box">
+          <div>
+            <div class="service-icon-box" style="background: #E0F7FA; color: var(--secondary-dark);">🚀</div>
+            <h3>Aplicaciones Web a Medida</h3>
+            <p>Sistemas en la nube para automatizar reservas, gestión de clientes, control de inventario o paneles para operar tu negocio desde cualquier lugar.</p>
+          </div>
+          <div class="service-tags">
+            <span class="tag">Bases de Datos</span>
+            <span class="tag">Paneles Admin</span>
+            <span class="tag">Automatización</span>
+          </div>
+        </div>
+
+        <div class="service-box">
+          <div>
+            <div class="service-icon-box" style="background: #FEF3C7; color: #D97706);">🛍️</div>
+            <h3>Tiendas Online (E-commerce)</h3>
+            <p>Plataformas de venta online donde tus clientes pueden explorar productos, armar su pedido y pagar al instante por Yape, Plin o tarjeta bancaria.</p>
+          </div>
+          <div class="service-tags">
+            <span class="tag">Pasarelas de Pago</span>
+            <span class="tag">Yape / Plin</span>
+            <span class="tag">Notificaciones</span>
+          </div>
+        </div>
+
+        <div class="service-box">
+          <div>
+            <div class="service-icon-box" style="background: #F3E8FF; color: #7C3AED);">💡</div>
+            <h3>Desarrollo de Ideas (MVP)</h3>
+            <p>¿Tienes una idea de startup o plataforma nueva? Desarrollamos tu Producto Mínimo Viable (MVP) rápidamente para validar tu mercado con agilidad.</p>
+          </div>
+          <div class="service-tags">
+            <span class="tag">Prototipado</span>
+            <span class="tag">Lanzamiento Rápido</span>
+            <span class="tag">Escalable</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO: CÓMO TRABAJAMOS -->
+  <section class="process-section" id="proceso">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge" style="background: rgba(255,191,63,0.2); color: var(--sun);">Transparente y Sencillo</span>
+        <h2 class="section-title">Así trabajamos contigo, <span style="color: var(--sun);">paso a paso</span></h2>
+        <p class="section-subtitle mx-auto">Un proceso colaborativo y sin fricciones: desde tu idea inicial hasta que tu plataforma esté operando con éxito en internet.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h4>Nos cuentas tu idea</h4>
+          <p>Coordinamos una videollamada o reunión para entender a fondo tu negocio, tus objetivos y los requerimientos exactos de la solución.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h4>Diseño de la Arquitectura</h4>
+          <p>Te mostramos cómo lucirá y funcionará tu plataforma antes de programar, asegurando que cada detalle responda a tus necesidades.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h4>Desarrollo y Pruebas</h4>
+          <p>Construimos el código con estándares modernos de velocidad, seguridad y compatibilidad en todo tipo de pantallas.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h4>¡Lanzamiento y Acompañamiento!</h4>
+          <p>Desplegamos tu app en servidores optimizados, te capacitamos para administrarla y te brindamos soporte continuo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES Y PRECIOS -->
+  <section id="planes">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge">Inversión Transparente</span>
+        <h2 class="section-title">Elige el plan ideal para <span class="highlight-coral">tu proyecto</span></h2>
+        <p class="section-subtitle mx-auto">Precios claros y competitivos. Sin costos sorpresa ni ataduras de mantenimiento.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan 1 -->
+        <div class="pricing-card">
+          <div class="plan-name">Plan Web Emprende</div>
+          <div class="plan-desc">Ideal para profesionales y marcas que necesitan una presencia digital impecable y rápida.</div>
+          <div class="plan-price">S/. 550 <span>/ pago único</span></div>
+          <ul class="plan-features">
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Sitio Web One-Page Profesional</li>
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> 100% Adaptado a Smartphones y Tablets</li>
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Botón directo de WhatsApp de alta conversión</li>
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Integración con Google Maps</li>
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Indexación inicial en Google</li>
+          </ul>
+          <a href="https://wa.me/51928544342?text=Hola,%20me%20interesa%20el%20Plan%20Web%20Emprende%20de%20S/.499" class="btn-secondary text-center" style="justify-content: center;">Elegir este plan</a>
+        </div>
+
+        <!-- Plan 2 (Destacado) -->
+        <div class="pricing-card featured">
+          <div class="pricing-ribbon">Más Elegido por Empresas</div>
+          <div class="plan-name">Plan Negocio Pro</div>
+          <div class="plan-desc">Para empresas y pymes que quieren captar pedidos, exhibir catálogo completo y convertir visitas en clientes recurrentes.</div>
+          <div class="plan-price">S/. 950 <span>/ pago único</span></div>
+          <ul class="plan-features">
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Hasta 5 secciones o Catálogo de productos</li>
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Carrito de pedidos integrado a WhatsApp</li>
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Correos corporativos (@tunegocio.com / .pe)</li>
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Optimización SEO para posicionar en tu mercado</li>
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Redacción persuasiva y estructura vendedora</li>
+          </ul>
+          <a href="https://wa.me/51928544342?text=Hola,%20me%20interesa%20el%20Plan%20Negocio%20Pro%20de%20S/.899" class="btn-primary text-center" style="justify-content: center;">Quiero este plan</a>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="pricing-card">
+          <div class="plan-name">App / Idea a Medida</div>
+          <div class="plan-desc">Para plataformas personalizadas, sistemas de gestión interna o ideas innovadoras de software.</div>
+          <div class="plan-price">Desde S/. 1,890 <span>/ según funciones</span></div>
+          <ul class="plan-features">
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Panel de Usuarios, Clientes y Administrador</li>
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Pasarela de Pagos (Niubiz, Culqi, MercadoPago, Stripe)</li>
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Base de datos segura y escalable en la nube</li>
+            <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Soporte técnico y capacitación integral</li>
+          </ul>
+          <a href="#contacto" class="btn-secondary text-center" style="justify-content: center;">Cotizar mi Proyecto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO DE CONTACTO / COTIZACIÓN -->
+  <section class="contact-section" id="contacto">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <div>
+            <h3>Conversemos sobre tu proyecto</h3>
+            <p>Cuéntanos qué tienes en mente. Te responderemos en menos de 2 horas con una propuesta clara, transparente y sin compromiso.</p>
+            
+            <div class="contact-items">
+              <div class="contact-item">
+                <div class="contact-item-icon">📍</div>
+                <div>Atención remota y ágil a nivel nacional e internacional</div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon">💬</div>
+                <div>WhatsApp Directo: +51 928 544 342</div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon">⚡</div>
+                <div>Atención Inmediata por WhatsApp</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 40px; border-top: 1px solid #334155; padding-top: 20px;">
+            <p style="font-size: 13px; color: #94A3B8; margin: 0;">¿Prefieres coordinar una llamada o videollamada? Indícalo en el formulario y te contactamos de inmediato.</p>
+          </div>
+        </div>
+
+        <div class="contact-form-side">
+          <form id="quoteForm" onsubmit="handleFormSubmit(event)">
+            <h3 style="font-family: var(--font-heading); font-size: 22px; margin-bottom: 20px;">Pide tu cotización gratuita</h3>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Tu Nombre o Empresa *</label>
+                <input type="text" id="nombre" class="form-control" placeholder="Ej: Juan Pérez / Mi Negocio" required>
+              </div>
+              <div class="form-group">
+                <label>Teléfono / WhatsApp *</label>
+                <input type="tel" id="telefono" class="form-control" placeholder="Ej: 928 544 342" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Correo Electrónico</label>
+              <input type="email" id="correo" class="form-control" placeholder="tu-correo@ejemplo.com">
+            </div>
+
+            <div class="form-group">
+              <label>¿Qué deseas desarrollar?</label>
+              <select id="tipoProyecto" class="form-control">
+                <option value="Página Web para mi negocio">Página Web para mi negocio</option>
+                <option value="Tienda Online con pagos / pedidos">Tienda Online con pagos / pedidos</option>
+                <option value="Aplicación Web a medida">Aplicación Web a medida (Sistema en la nube)</option>
+                <option value="Tengo una idea personal / Startup">Tengo una idea personal / Startup</option>
+                <option value="Otro requerimiento">Otro requerimiento</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Cuéntanos brevemente tu idea o necesidad</label>
+              <textarea id="mensaje" class="form-control" rows="3" placeholder="Ej: Tengo un negocio comercial y quiero que mis clientes hagan pedidos directos..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; font-size: 17px;">
+              🚀 Enviar y Recibir Propuesta
+            </button>
+            <p style="font-size: 12px; color: var(--gray-text); text-align: center; margin-top: 10px;">🔒 No compartimos tus datos con nadie. Cero spam.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES (FAQ) -->
+  <section id="faq" style="background: white;">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge blue">Resolvemos tus dudas</span>
+        <h2 class="section-title">Preguntas frecuentes</h2>
+        <p class="section-subtitle mx-auto">Lo que la mayoría de nuestros clientes consulta antes de empezar.</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>¿Cuánto tiempo demora desarrollar mi página web o app?</span>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            Una página web profesional del Plan Emprende suele estar lista en <strong>3 a 5 días hábiles</strong>. Proyectos más avanzados, tiendas online o aplicaciones a medida toman entre 1 y 3 semanas, según la cantidad de funciones específicas.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>¿Tengo que saber de programación para administrar mi web?</span>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            ¡Para nada! Entregamos plataformas diseñadas para ser sumamente intuitivas y amigables. Podrás actualizar fotos, productos o recibir pedidos desde tu propio celular con total facilidad. Además, te brindamos una sesión de capacitación personalizada.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>¿Cómo es el proceso de trabajo si estamos en diferentes ciudades o países?</span>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            Trabajamos de forma remota, transparente y ágil con clientes de cualquier lugar. Coordinamos reuniones por Google Meet o Zoom, te compartimos enlaces de prueba en tiempo real para que veas los avances y mantenemos comunicación fluida diaria por WhatsApp.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>¿Cómo se manejan los pagos del proyecto?</span>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            Trabajamos con 50% de anticipo para iniciar el desarrollo y el 50% restante al momento de la entrega final y tu completa conformidad. Emitimos comprobantes formales (factura o boleta) como empresa formalmente constituida.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="assets/img/logo.png" style="height: 38px; filter: brightness(0) invert(1); margin-bottom: 15px;" alt="APPlica">
+          <p style="font-size: 14px; line-height: 1.6; color: #94A3B8;">Plataforma y agencia de desarrollo web y aplicaciones para empresas, negocios y creadores de proyectos. Tecnología ágil, diseño de alto impacto y soporte cercano para impulsar tu presencia digital.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Servicios</h5>
+          <ul>
+            <li><a href="#servicios">Páginas Web Corporativas</a></li>
+            <li><a href="#servicios">Tiendas Virtuales / E-commerce</a></li>
+            <li><a href="#servicios">Apps Web a Medida</a></li>
+            <li><a href="#servicios">Desarrollo de MVPs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Empresa</h5>
+          <ul>
+            <li><a href="#proceso">Cómo Trabajamos</a></li>
+            <li><a href="#planes">Planes y Tarifas</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
+            <li><a href="#contacto">Contacto Directo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contacto</h5>
+          <ul>
+            <li>📍 Atención Nacional & Internacional</li>
+            <li>💬 WhatsApp: +51 928 544 342</li>
+            
+            <li>⏰ Lun - Sáb: 8:30 AM - 7:30 PM</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 <strong>APPlica Soluciones Digitales S.A.C.</strong> Todos los derechos reservados.</div>
+        <div>Desarrollo de software y aplicaciones web para negocios con visión de futuro.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/51928544342?text=Hola%20APPlica,%20estuve%20viendo%20su%20web%20y%20quiero%20cotizar%20un%20proyecto" target="_blank" class="whatsapp-float" title="Hablar con un asesor">
+    💬
+    <div class="whatsapp-badge">1</div>
+  </a>
+
+  <!-- Script interactivo -->
+  <script>
+    function toggleFaq(element) {
+      element.classList.toggle('active');
+      const icon = element.querySelector('.faq-question span:last-child');
+      if (element.classList.contains('active')) {
+        icon.textContent = '−';
+      } else {
+        icon.textContent = '+';
+      }
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value;
+      const telefono = document.getElementById('telefono').value;
+      const tipo = document.getElementById('tipoProyecto').value;
+      const mensaje = document.getElementById('mensaje').value;
+
+      const texto = `Hola APPlica, mi nombre es ${nombre}. Deseo información sobre: *${tipo}*. Detalle: ${mensaje || 'Quiero asesoría'}. Mi número de contacto es ${telefono}.`;
+      const urlWhatsapp = `https://wa.me/51928544342?text=${encodeURIComponent(texto)}`;
+      
+      window.open(urlWhatsapp, '_blank');
+    }
+  </script>
+
+  <script>
+    // Reveal elements on scroll
+    
+
+    // Interactive Demo Switcher
+    const demoData = {
+      restaurante: {
+        badge: 'Demo Gastronómica',
+        badgeBg: '#FEF3C7',
+        badgeColor: '#D97706',
+        title: 'App de Pedidos y Carta Digital con Delivery Directo',
+        desc: 'Tus clientes escanean el código QR en mesa o abren tu enlace desde redes sociales, eligen sus platillos favoritos y el pedido llega formateado con dirección y comprobante directo a tu cocina y WhatsApp.',
+        features: [
+          'Carta interactiva con fotos, precios y combos',
+          'Pedido directo con ubicación GPS para delivery',
+          'Ahorro del 25% al 30% en comisiones de apps externas',
+          'Pagos instantáneos con Yape, Plin o tarjeta'
+        ],
+        ctaText: 'Cotizar App para Restaurante',
+        screenHtml: '<div style="background: white; border-radius: 8px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 12px;"><div style="display: flex; justify-content: space-between; align-items: center;"><strong>🍔 Combo Familiar Parrillero</strong><span style="color: var(--primary); font-weight: 800;">S/. 65.00</span></div><p style="font-size: 12px; color: var(--gray-text); margin: 6px 0 10px 0;">Incluye papas, ensalada y bebida. Pedido listo en 20 min.</p><button style="background: #10B981; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">+ Añadir al Pedido</button></div><div style="background: #F1F5F9; border-radius: 8px; padding: 12px; font-size: 12px; display: flex; justify-content: space-between; align-items: center;"><span>🛵 Delivery calculado a tu zona</span><strong style="color: #059669;">S/. 5.00</strong></div>'
+      },
+      clinica: {
+        badge: 'Demo Salud & Servicios',
+        badgeBg: '#E0F7FA',
+        badgeColor: '#0891B2',
+        title: 'Sistema de Reservas, Citas Médicas y Agenda en Línea',
+        desc: 'Permite que tus pacientes elijan especialidad, fecha, hora disponible y confirmen su cita al instante, reduciendo las llamadas y cancelaciones en recepción.',
+        features: [
+          'Calendario en tiempo real con horarios disponibles',
+          'Recordatorio automático vía WhatsApp 2 horas antes',
+          'Ficha básica del paciente y motivo de consulta',
+          'Cobro previo o pago en consulta'
+        ],
+        ctaText: 'Cotizar Sistema de Citas',
+        screenHtml: '<div style="background: white; border-radius: 8px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 12px;"><div style="display: flex; justify-content: space-between; align-items: center;"><strong>🩺 Consulta Odontológica General</strong><span style="color: #0891B2; font-weight: 800;">S/. 80.00</span></div><p style="font-size: 12px; color: var(--gray-text); margin: 6px 0 10px 0;">Dr. Valdivia • Turno disponible: Hoy 4:30 PM</p><button style="background: #0891B2; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">📅 Confirmar Turno</button></div><div style="background: #ECFDF5; border-radius: 8px; padding: 12px; font-size: 12px; color: #047857;">🔔 Recordatorio programado a WhatsApp del paciente</div>'
+      },
+      tienda: {
+        badge: 'Demo E-commerce',
+        badgeBg: '#FEE2E2',
+        badgeColor: '#DC2626',
+        title: 'Tienda Online con Carrito y Pasarela Yape / Tarjeta',
+        desc: 'Diseñada para tiendas de ropa, calzado, tecnología o repuestos. Tus clientes filtran por categoría, tallas o marcas y completan la compra en menos de 1 minuto.',
+        features: [
+          'Catálogo ilimitado con fotos de alta calidad',
+          'Control de stock automático al realizarse la compra',
+          'Cálculo automático de envío por ciudad o distrito',
+          'Notificación de nueva venta directo a tu celular'
+        ],
+        ctaText: 'Cotizar Tienda Online',
+        screenHtml: '<div style="background: white; border-radius: 8px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 12px;"><div style="display: flex; justify-content: space-between; align-items: center;"><strong>👟 Zapatilla Urbana Street Pro</strong><span style="color: var(--primary); font-weight: 800;">S/. 149.00</span></div><p style="font-size: 12px; color: var(--gray-text); margin: 6px 0 10px 0;">Talla 41 • Color Negro • 3 unidades en stock</p><button style="background: var(--primary); color: white; border: none; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">🛍️ Pagar con Yape / Plin</button></div><div style="background: #FEF3C7; border-radius: 8px; padding: 12px; font-size: 12px; color: #B45309;">🏷️ Cupón de descuento aplicado (-10%)</div>'
+      },
+      startup: {
+        badge: 'Demo Ideas & Startups',
+        badgeBg: '#F3E8FF',
+        badgeColor: '#7C3AED',
+        title: 'Desarrollo de Plataformas y Nuevos Modelos de Negocio',
+        desc: '¿Tienes una idea como un Uber de servicios, un marketplace local o una app de suscripciones? Desarrollamos la versión 1.0 (MVP) para salir al mercado rápido y conseguir clientes.',
+        features: [
+          'Diseño de arquitectura escalable en la nube',
+          'Panel para usuarios y panel para administradores',
+          'Lógica de comisiones o suscripciones recurrentes',
+          'Acompañamiento tecnológico y asesoría de producto'
+        ],
+        ctaText: 'Presentar mi Idea de App',
+        screenHtml: '<div style="background: white; border-radius: 8px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 12px;"><div style="display: flex; justify-content: space-between; align-items: center;"><strong>💡 Tu Plataforma Digital (SaaS / App)</strong><span style="color: #7C3AED; font-weight: 800;">Versión 1.0</span></div><p style="font-size: 12px; color: var(--gray-text); margin: 6px 0 10px 0;">Usuarios activos: 1,450 • Ventas del mes: S/. 18,200</p><button style="background: #7C3AED; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">📊 Ver Panel en Tiempo Real</button></div><div style="background: #F1F5F9; border-radius: 8px; padding: 12px; font-size: 12px; color: #334155;">🔒 Base de datos protegida con encriptación SSL</div>'
+      }
+    };
+
+    function switchTab(key, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const data = demoData[key];
+      
+      document.getElementById('demoBadge').textContent = data.badge;
+      document.getElementById('demoBadge').style.background = data.badgeBg;
+      document.getElementById('demoBadge').style.color = data.badgeColor;
+      
+      document.getElementById('demoTitle').textContent = data.title;
+      document.getElementById('demoDesc').textContent = data.desc;
+      
+      const featuresUl = document.getElementById('demoFeatures');
+      featuresUl.innerHTML = '';
+      data.features.forEach(f => {
+        const li = document.createElement('li');
+        li.innerHTML = '<span>✓</span> ' + f;
+        featuresUl.appendChild(li);
+      });
+
+      const cta = document.getElementById('demoCta');
+      cta.textContent = data.ctaText;
+      cta.href = 'https://wa.me/51928544342?text=' + encodeURIComponent('Hola APPlica, me interesa una solución como la demo de ' + key);
+      
+      document.getElementById('screenSimulation').innerHTML = data.screenHtml;
+    }
+  </script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('js-ready');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.05 });
+
+      document.querySelectorAll('.problem-card, .service-box, .pricing-card, .step-card, .contact-wrapper, .demos-section, .calc-box').forEach(el => {
+        el.classList.add('reveal');
+        observer.observe(el);
+      });
+      
+      // Auto activate first batch
+      setTimeout(() => {
+        document.querySelectorAll('.hero, .demos-section, .problems-section').forEach(sec => {
+          sec.querySelectorAll('.reveal').forEach(r => r.classList.add('active'));
+        });
+      }, 100);
+    });
+  </script>
+
+</body>
+</html>
