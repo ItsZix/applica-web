@@ -697,32 +697,84 @@
       }
     };
 
-    function switchTab(key, btn) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const data = demoData[key];
-      
-      document.getElementById('demoBadge').textContent = data.badge;
-      document.getElementById('demoBadge').style.background = data.badgeBg;
-      document.getElementById('demoBadge').style.color = data.badgeColor;
-      
-      document.getElementById('demoTitle').textContent = data.title;
-      document.getElementById('demoDesc').textContent = data.desc;
-      
-      const featuresUl = document.getElementById('demoFeatures');
-      featuresUl.innerHTML = '';
-      data.features.forEach(f => {
-        const li = document.createElement('li');
-        li.innerHTML = '<span>✓</span> ' + f;
-        featuresUl.appendChild(li);
-      });
+    const tabKeys = ['restaurante', 'clinica', 'tienda', 'startup'];
+    let currentTabIndex = 0;
+    let autoTabInterval = null;
+    let isUserHoveringDemo = false;
 
-      const cta = document.getElementById('demoCta');
-      cta.textContent = data.ctaText;
-      cta.href = 'https://wa.me/51928544342?text=' + encodeURIComponent('Hola APPlica, me interesa una solución como la demo de ' + key);
+    function switchTab(key, btn, isManual = true) {
+      if (isManual) {
+        currentTabIndex = tabKeys.indexOf(key);
+        resetAutoRotateTimer();
+      }
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const data = demoData[key];
+      if (!data) return;
       
-      document.getElementById('screenSimulation').innerHTML = data.screenHtml;
+      const demoBadge = document.getElementById('demoBadge');
+      const demoTitle = document.getElementById('demoTitle');
+      const demoDesc = document.getElementById('demoDesc');
+      const featuresUl = document.getElementById('demoFeatures');
+      const cta = document.getElementById('demoCta');
+      const screenSimulation = document.getElementById('screenSimulation');
+
+      if (demoBadge) {
+        demoBadge.textContent = data.badge;
+        demoBadge.style.background = data.badgeBg;
+        demoBadge.style.color = data.badgeColor;
+      }
+      if (demoTitle) demoTitle.textContent = data.title;
+      if (demoDesc) demoDesc.textContent = data.desc;
+      
+      if (featuresUl) {
+        featuresUl.innerHTML = '';
+        data.features.forEach(f => {
+          const li = document.createElement('li');
+          li.innerHTML = '<span>✓</span> ' + f;
+          featuresUl.appendChild(li);
+        });
+      }
+
+      if (cta) {
+        cta.textContent = data.ctaText;
+        cta.href = 'https://wa.me/51928544342?text=' + encodeURIComponent('Hola APPlica, me interesa una solución como la demo de ' + key);
+      }
+      
+      if (screenSimulation) {
+        screenSimulation.innerHTML = data.screenHtml;
+      }
     }
+
+    function rotateNextTab() {
+      if (isUserHoveringDemo) return;
+      currentTabIndex = (currentTabIndex + 1) % tabKeys.length;
+      const nextKey = tabKeys[currentTabIndex];
+      const buttons = document.querySelectorAll('.tab-btn');
+      if (buttons[currentTabIndex]) {
+        switchTab(nextKey, buttons[currentTabIndex], false);
+      }
+    }
+
+    function resetAutoRotateTimer() {
+      if (autoTabInterval) clearInterval(autoTabInterval);
+      autoTabInterval = setInterval(rotateNextTab, 2000);
+    }
+
+    // Iniciar rotación automática cada 2 segundos
+    resetAutoRotateTimer();
+
+    // Pausar si el usuario tiene el cursor encima para leer o hacer clic
+    document.addEventListener('DOMContentLoaded', () => {
+      const demoBox = document.getElementById('demoBox');
+      const tabControls = document.querySelector('.tab-controls');
+      [demoBox, tabControls].forEach(el => {
+        if (el) {
+          el.addEventListener('mouseenter', () => { isUserHoveringDemo = true; });
+          el.addEventListener('mouseleave', () => { isUserHoveringDemo = false; });
+        }
+      });
+    });
   </script>
 
 
